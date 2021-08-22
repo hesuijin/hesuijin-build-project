@@ -29,4 +29,70 @@
 
     </dependencies>
 
+
+
+    <!--    <plugin>-->
+    <!--        <groupId>org.apache.maven.plugins</groupId>-->
+    <!--        <artifactId>maven-resources-plugin</artifactId>-->
+    <!--        <version>3.1.0</version>-->
+    <!--        <configuration>-->
+    <!--            <delimiters>-->
+    <!--                <delimiter>@</delimiter>-->
+    <!--            </delimiters>-->
+    <!--            <useDefaultDelimiters>false</useDefaultDelimiters>-->
+    <!--        </configuration>-->
+    <!--    </plugin>-->
+
+    <!--    https://blog.csdn.net/java_collect/article/details/83870215-->
+
+
+    <!-- profile 配置，默认开发环境 -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profileActive>test</profileActive>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+<!--        是否过滤资源以使用参数化值替换标记。-->
+<!--        这些值取自properties元素和filters元素中列出的文件中的属性。-->
+<!--        由于技术原因，该字段的类型是String，但语义类型实际上是Boolean。默认值为false。-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <!--        打包的名称-->
+        <finalName>${project.name}</finalName>
+
+        <plugins>
+            <!--           使用适合的Maven打包插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
