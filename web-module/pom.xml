@@ -20,13 +20,17 @@
         <java.version>1.8</java.version>
     </properties>
 
+
+
+
+
+
     <dependencies>
         <!--        web项目启动器器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
     </dependencies>
 
 
@@ -43,7 +47,6 @@
     <!--        </configuration>-->
     <!--    </plugin>-->
 
-    <!--    https://blog.csdn.net/java_collect/article/details/83870215-->
 
 
     <!-- profile 配置，默认开发环境 -->
