@@ -24,6 +24,7 @@
   <!--    如果不写任何参数配置，默认的是在/WEB-INF/applicationContext.xml-->
   <!--    如果想要自定义文件名，并且自定义读取的路径，需要在web.xml中加入contextConfigLocation这个context参数-->
 
+
   <context-param>
     <!--    2：classpath：等同于 classpath：/
                查找resource资源文件下面的文件
@@ -35,7 +36,13 @@
     <!--        <param-name>contextConfigLocation</param-name>-->
     <description>定义要装入的 Spring 配置文件</description>
     <param-name>contextConfigLocation</param-name>
+<!--    class path resource [spring-context.xml] cannot be opened because it does not exist-->
+
+<!--    <param-value>classpath:spring-context.xml</param-value>-->
+    <!--    class path resource [spring-context.xml] cannot be opened because it does not exist-->
+
     <param-value>classpath*:spring-context.xml</param-value>
+
     <!--    <param-value>classpath:/config/applicationContext.xml</param-value>-->
   </context-param>
 
@@ -56,3 +63,11 @@
   <!--        </context-param>-->
 
 </web-app>
+
+
+        <!--  用maven构建web项目的时候，resource目录就是默认的classpath-->
+
+<!--    1:java文件编译之后的class文件的编译目录一般为WEB-INF/classess  src下的xml在编译时也会复制到这下面-->
+<!--    2: classPath即为路径 WEB-INF/classess-->
+
+<!--后续需要先解决问题：为什么xml没有生成到WEB-INF/classess路径下面-->
