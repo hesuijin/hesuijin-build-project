@@ -7,52 +7,52 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>Archetype Created Web Application</display-name>
+  <display-name>Archetype Created Web Application</display-name>
 
-    <!--    配置文件加载监听器-->
-    <!--    ContextLoaderListener它的作用是启动web容器，(加载配置文件)自动装配applicationContext.xml配置信息。-->
+  <!--    配置文件加载监听器-->
+  <!--    ContextLoaderListener它的作用是启动web容器，(加载配置文件)自动装配applicationContext.xml配置信息。-->
 
-    <!--    在web.xml里配置Listener，本Listener会去加载后面步骤中指定的配置文件。-->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-
-    <!--    2.部署applicationContext.xml文件-->
-    <!--    配置的意义：在web.xml中通过contextConfigLocation配置spring，contextConfigLocation参数定义要装入的 Spring 配置文件。-->
-
-    <!--    如果不写任何参数配置，默认的是在/WEB-INF/applicationContext.xml-->
-    <!--    如果想要自定义文件名，并且自定义读取的路径，需要在web.xml中加入contextConfigLocation这个context参数-->
-
-    <context-param>
-        <!--    2：classpath：等同于 classpath：/
-                   查找resource资源文件下面的文件
-
-                    classpath:只会到你的class路径中查找找文件;
-                    classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.-->
-
-        <!--    3：读取resource下的spring-context.xml-->
-        <!--        <param-name>contextConfigLocation</param-name>-->
-        <description>定义要装入的 Spring 配置文件</description>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-context.xml</param-value>
-        <!--    <param-value>classpath:/config/applicationContext.xml</param-value>-->
-    </context-param>
+  <!--    在web.xml里配置Listener，本Listener会去加载后面步骤中指定的配置文件。-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
 
-    <!--&lt;!&ndash;    spring  log4j日志监听器配置&ndash;&gt;-->
-    <!--        <listener>-->
-    <!--            <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>-->
-    <!--        </listener>-->
-    <!--        <context-param>-->
-    <!--            <param-name>Log4jConfigListener</param-name>-->
-    <!--            &lt;!&ndash; 配置文件的位置 &ndash;&gt;-->
-    <!--            <param-value>classpath:log4j.properties</param-value>-->
-    <!--        </context-param>-->
-    <!--        <context-param>-->
-    <!--            <param-name>Log4jConfigListener</param-name>-->
-    <!--            &lt;!&ndash; spring刷新log4j文件的时间间隔 &ndash;&gt;-->
-    <!--            <param-value>10000</param-value>-->
-    <!--        </context-param>-->
+  <!--    2.部署applicationContext.xml文件-->
+  <!--    配置的意义：在web.xml中通过contextConfigLocation配置spring，contextConfigLocation参数定义要装入的 Spring 配置文件。-->
+
+  <!--    如果不写任何参数配置，默认的是在/WEB-INF/applicationContext.xml-->
+  <!--    如果想要自定义文件名，并且自定义读取的路径，需要在web.xml中加入contextConfigLocation这个context参数-->
+
+  <context-param>
+    <!--    2：classpath：等同于 classpath：/
+               查找resource资源文件下面的文件
+
+                classpath:只会到你的class路径中查找找文件;
+                classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.-->
+
+    <!--    3：读取resource下的spring-context.xml-->
+    <!--        <param-name>contextConfigLocation</param-name>-->
+    <description>定义要装入的 Spring 配置文件</description>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath*:spring-context.xml</param-value>
+    <!--    <param-value>classpath:/config/applicationContext.xml</param-value>-->
+  </context-param>
+
+
+  <!--&lt;!&ndash;    spring  log4j日志监听器配置&ndash;&gt;-->
+  <!--        <listener>-->
+  <!--            <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>-->
+  <!--        </listener>-->
+  <!--        <context-param>-->
+  <!--            <param-name>Log4jConfigListener</param-name>-->
+  <!--            &lt;!&ndash; 配置文件的位置 &ndash;&gt;-->
+  <!--            <param-value>classpath:log4j.properties</param-value>-->
+  <!--        </context-param>-->
+  <!--        <context-param>-->
+  <!--            <param-name>Log4jConfigListener</param-name>-->
+  <!--            &lt;!&ndash; spring刷新log4j文件的时间间隔 &ndash;&gt;-->
+  <!--            <param-value>10000</param-value>-->
+  <!--        </context-param>-->
 
 </web-app>

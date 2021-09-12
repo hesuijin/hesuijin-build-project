@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    1：使用property-placeholder在resource目录下读取配置的key value-->
+    <!--    2：配置文件会先合并，后解析，也就是说，无论是命名空间还是配置的内容，都会合并处理。-->
+    <!--    3：因为多个 Spring 配置文件最终会合并到一起（形成一个 ApplicationContext），因此这些配置中的 bean 都是可以互相引用的-->
+
+    <!--    配置文件中属性的读取都是按照 属性的维度的（但前提是需要先读取到配置文件）-->
+    <context:property-placeholder location="classpath:/config.properties" order="1"/>
+
+    <!--    获取配置文件属性的方式1：直接在这里使用config.properties的key value-->
+    <bean id="ProjectConfigBean" class="config.ProjectConfig">
+        <property name="envDev" value="${ENV.DEV}"/>
+        <property name="envTest" value="${ENV.TEST}"/>
+        <property name="envNotExist" value="${ENV.NOT.EXIST}"/>
+    </bean>
+
+    <!--    获取配置文件属性的方式2：使用import去合并另一个配置文件，然后另一个配置文件也会去使用config.properties的key value-->
+    <import resource="classpath:dataSource.xml" />
+
+    <!--    order先该配置文件的优先级-->
+
+    <!--       ignore-unresolvable：-->
+    <!--       当一个xml中有多个配置文件时的情况-->
+    <!--       如果设为false，当找不属性时，会直接报错。-->
+    <!--       如果设为true，当找不属性时，会直接赋值'${}',然后会去找另一个配置文件的属性。-->
+
+    <!--    location="classpath:"代表在项目的resource路径下-->
+    <!--    location="file:${user.dir}" 是web容器启动脚本所在目录，即${TOMCAT_HOME}/bin，通过加上file:前缀，则可以读取到文件的绝对路径：file:${user.dir}-->
+        <context:property-placeholder location="file:${user.dir}/config-files/config.properties" file-encoding="GBK" ignore-unresolvable="true" order="0"/>
+
+</beans>

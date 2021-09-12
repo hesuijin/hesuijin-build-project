@@ -1,3 +1,5 @@
+
+import config.DataSourceConfig;
 import config.ProjectConfig;
 import org.junit.Test;
 
@@ -12,7 +14,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ConfigTest {
 
 
-
     /**
      * 测试是否可以获取配置
      */
@@ -21,5 +22,15 @@ public class ConfigTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/spring-context.xml");
         ProjectConfig projectConfig = applicationContext.getBean(ProjectConfig.class);
         System.out.println(projectConfig);
+    }
+
+    /**
+     * 测试是否可以获取配置
+     */
+    @Test
+    public void datasourceConfigTest(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/spring-context.xml");
+        DataSourceConfig dataSourceConfig = applicationContext.getBean(DataSourceConfig.class);
+        System.out.println(dataSourceConfig);
     }
 }
