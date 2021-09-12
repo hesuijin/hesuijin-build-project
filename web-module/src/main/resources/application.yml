@@ -1,8 +1,12 @@
 server:
-  port: 8081
+  port: 8083
 
 spring:
   profiles:
     active: @profileActive@
   application:
     name: web-module
+
+  #  设置静态资源路径
+  mvc:
+    static-path-pattern: static/**
