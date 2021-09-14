@@ -17,5 +17,6 @@ public class LombokSlf4jTest {
     public void log4jTest() {
         log.error("logback 成功了");
         log.debug("logback 成功了");
+        log.info("打印日志");
     }
 }
