@@ -22,5 +22,7 @@ public class LombokSlf4jTest {
         log.info("test1");
         log.info("test2");
         log.info("test3");
+
+        log.info("111");
     }
 }
