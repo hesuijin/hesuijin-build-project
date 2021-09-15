@@ -26,5 +26,7 @@ public class LombokSlf4jTest {
         log.info("hesuijin");
 
         log.info("你好啊");
+
+        log.info("你好啊第二次");
     }
 }
