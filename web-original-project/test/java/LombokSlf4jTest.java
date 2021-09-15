@@ -23,6 +23,6 @@ public class LombokSlf4jTest {
         log.info("test2");
         log.info("test3");
 
-        log.info("111");
+        log.info("hesuijin");
     }
 }
