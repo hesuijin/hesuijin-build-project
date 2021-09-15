@@ -20,5 +20,6 @@ public class LombokSlf4jTest {
         log.info("打印日志");
 
         log.info("test1");
+        log.info("test2");
     }
 }
