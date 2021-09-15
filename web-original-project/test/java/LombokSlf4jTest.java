@@ -25,6 +25,5 @@ public class LombokSlf4jTest {
 
         log.info("MyTest1");
         log.info("MyTest2");
-        log.info("MyTest3");
     }
 }
