@@ -23,6 +23,12 @@ public class LombokSlf4jTest {
         log.info("test2");
         log.info("test3");
 
+        log.info("hesuijin");
+
+        log.info("你好啊");
+
+        log.info("你好啊第二次");
+
         log.info("MyTest1");
         log.info("MyTest2");
         log.info("MyTest3");
