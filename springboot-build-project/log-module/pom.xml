@@ -6,7 +6,6 @@
         <groupId>com.example</groupId>
         <artifactId>springboot-build-project</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
 
     <groupId>com.example</groupId>
